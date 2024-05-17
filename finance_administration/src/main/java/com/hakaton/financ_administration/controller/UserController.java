@@ -37,15 +37,16 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestPart("userJson") String userJson, @RequestPart("image") MultipartFile image){
+    public ResponseEntity<UserDto> createUser(@RequestPart("userJson") String userJson){
         User user;
+        UserDto userDto;
         try {
             user = objectMapper.readValue(userJson, User.class);
-            var userDto = userService.createUser(user, image);
+            userDto = userService.createUser(user);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
-        return new ResponseEntity<>(user, HttpStatus.CREATED);
+        return new ResponseEntity<>(userDto, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")

@@ -34,7 +34,7 @@ public class UserService {
         return userDto;
     }
 
-    public UserDto createUser(User user, MultipartFile image){
+    public UserDto createUser(User user){
         if(Objects.isNull(user)){
             throw new NullPointerException("The User should not be null");
         }

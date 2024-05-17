@@ -38,8 +38,6 @@ public class User implements UserDetails {
     private String email;
     @Column(name = "phone")
     private String phone;
-    @Column(name = "imageMinioName")
-    private String imageMinioName;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "role")
@@ -53,22 +51,6 @@ public class User implements UserDetails {
     @Override
     public boolean isAccountNonExpired() {
         return true;
-    }
-
-    public User(Long id, String username, String name, String surname, String email, String phone) {
-        this.id = id;
-        this.username = username;
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.phone = phone;
-    }
-    public User(String username, String name, String surname, String email, String phone) {
-        this.username = username;
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.phone = phone;
     }
 
     @Override
