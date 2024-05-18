@@ -1,5 +1,7 @@
 server:
     port: ${SERVER_PORT:8080}
+    servlet:
+        context-path: /api/v1
 
 spring:
     application:
@@ -9,14 +11,14 @@ spring:
     jpa:
         show-sql: true
         hibernate:
-            ddl-auto: create
+            ddl-auto: update
         properties:
             hibernate:
                 format_sql: true
         database: postgresql
         database-platform: org.hibernate.dialect.PostgreSQLDialect
     datasource:
-        url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/financeDB}
+        url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5437/financeDB}
         username: ${DATASOURCE_USERNAME:finance}
         password: ${DATASOURCE_PASSWORD:finance}
         driver-class-name: org.postgresql.Driver
