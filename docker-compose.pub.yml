@@ -14,9 +14,7 @@ services:
             - SPRING_DATASOURCE_USERNAME=finance
             - SPRING_DATASOURCE_PASSWORD=finance
     finance-administration:
-        build:
-            context: .
-            dockerfile: Dockerfile
+        image: 'nyos777/finance-administration'
         container_name: 'administration'
         ports:
             - '8080:8080'
@@ -42,3 +40,4 @@ services:
             - finance_data:/var/lib/postgresql/data
 volumes:
     finance_data:
+        name: "finance_data"
